@@ -1,0 +1,24 @@
+<div class="max-w-md mx-auto bg-white rounded-lg shadow-lg p-6">
+  <div class="flex">
+    <.link patch={~p"/"} class={@markdown_style}>Markdown</.link>
+
+    <.link patch={~p"/preview"} class={@preview_style}>Preview</.link>
+  </div>
+  <div :if={@live_action == :markdown} class="mt-4">
+    <.form :let={f} id="markdown-converter" for={@form} phx-change="validate" phx-submit="save">
+      <.input
+        field={f[:content]}
+        type="textarea"
+        placeholder="Type your markdown"
+        class="w-full h-72 border rounded-lg p-2 focus:outline-none focus:ring focus:border-blue-500"
+      />
+
+      <.button class="mt-1.5 bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
+        Save
+      </.button>
+    </.form>
+  </div>
+  <div :if={@live_action == :preview} class="mt-4">
+    <%= raw(@preview_content) %>
+  </div>
+</div>
