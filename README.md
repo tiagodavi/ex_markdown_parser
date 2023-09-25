@@ -1,5 +1,7 @@
 # Parser
 
+A markdown parser you can use to persist checkboxes.
+
 ## Setup your Project
 
 - Ensure the port is `5432` and the password is the same as the configuration.
